@@ -2,7 +2,7 @@ function makeGrid() {
     nsize = document.querySelector('.sizebox').value;
 
     const containter = document.querySelector('#container');
-    containter.innerHTML = '';
+    containter.innerHTML = ''; //clear out the container
     const boxrow = document.createElement('div');
     boxrow.classList.add('boxrow');
 
@@ -10,11 +10,9 @@ function makeGrid() {
         const boxrow = document.createElement('div');
         boxrow.classList.add('boxrow');
         for (let j = 0; j < nsize; j++) {
-
             const box = document.createElement('div');
             box.classList.add('box');
-            box.color =255;
-            //box.addEventListener('mouseenter', mouseoverHandler);
+            box.color = 255;
             box.addEventListener('mouseenter', handleModeAction);
             boxrow.appendChild(box);
         }
@@ -30,7 +28,7 @@ function handleModeAction(event){
     }
 }
 
-function actions(){
+function init(){
 
     var sb = document.querySelector('.sizebox');
     sb.value = nsize;
@@ -100,5 +98,5 @@ const brightness=.1;
 var ismousedown = false;
 var iscleardown = false;
 var mode = 0;
-actions();
+init();
 makeGrid();
