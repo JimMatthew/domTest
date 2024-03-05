@@ -11,25 +11,47 @@ function makeGrid() {
 
             const box = document.createElement('div');
             box.classList.add('box');
-            box.addEventListener('mouseover', (e) => {
-                e.target.style.backgroundColor = "#06AED5";
-                console.log("hovered");
-            });
+            
             boxrow.appendChild(box);
         }
         containter.appendChild(boxrow);
     }
 }
 
+
 function actions(){
     const a = document.querySelector('.bclr');
     a.addEventListener('click', clear);
+
+    const box = document.querySelector('.box');
+    
+
+    document.addEventListener('mousedown', function(event) {
+        if (event.button === 0) {
+            document.addEventListener('mouseover', mouseoverHandler);
+        }
+    });
+
+    document.addEventListener('mouseup', function(event) {
+        document.removeEventListener('mouseover', mouseoverHandler);
+    })
+}
+
+function mouseoverHandler(event) {
+    if (event.target.classList.contains('box')) {
+        event.target.style.backgroundColor = "#06AED5";
+        
+    }
 }
 
 function clear() {
 
-    const containter = document.querySelector('#container');
-    
+    const box = document.querySelector('.box');
+    console.log("clear");
+    box.style.backgroundColor = "white"
 
 }
+var ismousedown = false;
+
 makeGrid();
+actions();
