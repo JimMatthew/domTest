@@ -2,6 +2,12 @@
 
 function makeGrid() {
 
+    const a = document.querySelector('.header');
+
+    a.addEventListener('mouseover', event => {
+        
+    });
+
     const containter = document.querySelector('#container');
     const boxrow = document.createElement('div');
     boxrow.classList.add('boxrow');
@@ -9,8 +15,9 @@ function makeGrid() {
     for (let i = 0; i < 64; i++) {
         const box = document.createElement('div');
         box.classList.add('box');
-        box.addEventListener('mouseover', function() {
-            box.style.backgroundColor = 'red';
+        box.addEventListener('mouseover', (e) => {
+            box.target.style.backgroundColor = "red";
+            console.log("hovered");
         });
         boxrow.appendChild(box.cloneNode(true));
     }
