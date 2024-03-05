@@ -1,7 +1,9 @@
 body{
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    max-height: 100vh;
+    margin: 0;
+    padding: 0;
 }
 
 #container{
@@ -10,6 +12,9 @@ body{
     justify-items:center;
     justify-content: space-evenly;
     flex-grow: 1;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-bottom: 20px;
 }
 
 .boxrow{
@@ -22,7 +27,8 @@ body{
 
 .box{
     flex-grow: 1;
-    
+    background-color: white;
+    aspect-ratio: 1;
 }
 .box:hover {
     background-color:#06AED5 ;
@@ -44,13 +50,47 @@ body{
   .mainpanel {
     display: flex;
     flex-grow: 1;
+    padding: 50px;
+    background-color: lightsteelblue;
   }
 
-  .contropanel {
+  .controlpanel {
+    background-color: lightsteelblue;
     display: flex;
     flex-direction: column;
     min-width: 150px;
     padding: 15px;
-    flex-basis: 100px;
+    flex-basis: 150px;
     flex-grow: 0;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .bclr {
+    padding: 6px;
+    background-color: coral;
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 15px;
+
+  }
+
+  .label{
+    
+    display: flex;
+    flex-wrap: wrap;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    
+  }
+
+  .footer {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    background-color: aliceblue;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    font-size: 40px;
+    font-weight: bold;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   }
