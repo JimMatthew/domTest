@@ -1,14 +1,15 @@
 function makeGrid() {
+    nsize = document.querySelector('.sizebox').value;
 
     const containter = document.querySelector('#container');
     containter.innerHTML = '';
     const boxrow = document.createElement('div');
     boxrow.classList.add('boxrow');
 
-    for (let i = 0; i < 64; i++) {
+    for (let i = 0; i < nsize; i++) {
         const boxrow = document.createElement('div');
         boxrow.classList.add('boxrow');
-        for (let j = 0; j < 64; j++) {
+        for (let j = 0; j < nsize; j++) {
 
             const box = document.createElement('div');
             box.classList.add('box');
@@ -31,6 +32,8 @@ function handleModeAction(event){
 
 function actions(){
 
+    var sb = document.querySelector('.sizebox');
+    sb.value = nsize;
     const bcm = document.querySelector('.bchangemode');
     bcm.addEventListener('click', changeMode);
 
@@ -92,10 +95,10 @@ function clampValue(event){
         element.value = value;
     }
 }
-
+var nsize = 32;
 const brightness=.1;
 var ismousedown = false;
 var iscleardown = false;
 var mode = 0;
-makeGrid();
 actions();
+makeGrid();

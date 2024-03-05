@@ -74,7 +74,7 @@ body{
     font-weight: bold;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 15px;
-
+    margin-bottom: 20px;
   }
 
   .bchangemode{
@@ -83,6 +83,7 @@ body{
     font-weight: bold;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 15px;
+    margin-bottom: 20px;
   }
 
   .label{
@@ -104,4 +105,10 @@ body{
     font-size: 20px;
     font-weight: bold;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+
+  .sizebox{
+    font-size: 15px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width: 30px;
   }
