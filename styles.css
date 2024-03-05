@@ -2,6 +2,7 @@ body{
     display: flex;
     flex-direction: column;
     max-height: 100vh;
+    min-height: 100vh;
     margin: 0;
     padding: 0;
 }
@@ -37,23 +38,24 @@ body{
     display: flex;
     justify-content: center;
     align-content: center;
-    background-color: aliceblue;
+    background-color: #1f2937;
+    color: white;
     padding-top: 50px;
     padding-bottom: 50px;
     font-size: 40px;
     font-weight: bold;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
   }
 
   .mainpanel {
     display: flex;
     flex-grow: 1;
     padding: 50px;
-    background-color: lightsteelblue;
+    background-color: #e5e7eb;
   }
 
   .controlpanel {
-    background-color: lightsteelblue;
+    background-color: #e5e7eb;
     display: flex;
     flex-direction: column;
     min-width: 150px;
@@ -85,10 +87,11 @@ body{
     display: flex;
     justify-content: center;
     align-content: center;
-    background-color: aliceblue;
-    padding-top: 50px;
-    padding-bottom: 50px;
-    font-size: 40px;
+    background-color: #1f2937;
+    color: white;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    font-size: 20px;
     font-weight: bold;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   }
