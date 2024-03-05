@@ -64,6 +64,8 @@ body{
     flex-grow: 0;
     gap: 20px;
     flex-wrap: wrap;
+    font-weight: 600;
+    font-size: 20px;
   }
 
   .bclr {
@@ -73,6 +75,14 @@ body{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 15px;
 
+  }
+
+  .bchangemode{
+    padding: 6px;
+    background-color: coral;
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 15px;
   }
 
   .label{

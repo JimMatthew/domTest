@@ -1,6 +1,7 @@
 function makeGrid() {
 
     const containter = document.querySelector('#container');
+    containter.innerHTML = '';
     const boxrow = document.createElement('div');
     boxrow.classList.add('boxrow');
 
@@ -12,29 +13,33 @@ function makeGrid() {
             const box = document.createElement('div');
             box.classList.add('box');
             box.color =255;
-            box.addEventListener('mouseenter', mouseoverHandler);
-            box.addEventListener('mouseenter', changeBackground);
+            //box.addEventListener('mouseenter', mouseoverHandler);
+            box.addEventListener('mouseenter', handleModeAction);
             boxrow.appendChild(box);
         }
         containter.appendChild(boxrow);
     }
 }
 
+function handleModeAction(event){
+    if (mode == 1){
+        mouseoverHandler(event);
+    } else {
+        changeBackground(event);
+    }
+}
 
 function actions(){
 
+    const bcm = document.querySelector('.bchangemode');
+    bcm.addEventListener('click', changeMode);
+
     const a = document.querySelector('.bclr');
-    a.addEventListener('click', clear);
+    a.addEventListener('click', makeGrid);
 
     const cont = document.querySelector('#container');
-    //cont.onmouseover = mouseHandler;
     cont.addEventListener("contextmenu", e => e.preventDefault());
-    //container.onmouseover = mouseoverHandler;
-    //container.onmouseenter = mouseoverHandler;
     
-   // box.addEventListener('mouseenter', mouseoverHandler);
-    //document.addEventListener('mouseover', mouseoverHandler);
-
     document.addEventListener('mousedown', function(event) {
         if (event.button === 0) {
             ismousedown = true;
@@ -47,37 +52,33 @@ function actions(){
         ismousedown = false;
         iscleardown = false;
     });
-
-    
-
 }
 
-function mouseHandler(event) {
-    event.target.style.backgroundColor = "#06AED5";
-}
-
-
-function mouseoverHandler(event) {
-    if (ismousedown && event.target.classList.contains('box')) {
-        
-        event.target.style.backgroundColor = "#06AED5";
-    } else if(iscleardown&& event.target.classList.contains('box')) {
-        event.target.style.backgroundColor = "white";
+function changeMode(){
+    if (mode == 0) {
+        mode = 1;
+    } else {
+        mode = 0;
+    }
+    var lbl = document.querySelector('.cmodelbl');
+    if (mode == 0) {
+        lbl.textContent = "Current Mode: Shade";
+    } else {
+        lbl.textContent = "Current Mode: Color";
     }
 }
 
-function colorItem(item){
-    var c = item.style.backgroundColor;
-    var n = darkenColor(c);
-    item.style.backgroundColor = n;
-    item.style.backgroundColor = "#06AED5";
+function mouseoverHandler(event) {
+     if(iscleardown&& event.target.classList.contains('box')) {
+        event.target.style.backgroundColor = "white";
+    } else if (event.target.classList.contains('box')) {
+        event.target.style.backgroundColor = "#06AED5";
+    }
 }
 
 function changeBackground(event){
     cell = event.target;
-    //additive coloring
     let colorPass = Math.round(brightness * 255);
-    //clamp color channel value to [0,255]
     cell.color = Math.max(Math.min(cell.color-colorPass,255),0);
     let color = `rgb(${cell.color},${cell.color},${cell.color})`
     cell.style.backgroundColor = color;
@@ -92,18 +93,9 @@ function clampValue(event){
     }
 }
 
-function clear() {
-
-    const box = document.querySelector('.box');
-    console.log("clear");
-    box.style.backgroundColor = "white"
-
-}
-
 const brightness=.1;
-//Limit brightness parameter to [0,1]
 var ismousedown = false;
 var iscleardown = false;
-brightness.eraseEnable = 1;
+var mode = 0;
 makeGrid();
 actions();
