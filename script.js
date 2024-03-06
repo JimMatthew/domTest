@@ -14,6 +14,11 @@ function makeGrid() {
             box.classList.add('box');
             box.color = 255;
             box.addEventListener('mouseenter', handleModeAction);
+            if (isgrid) {
+                box.style.border = '1px solid black'; 
+              } else {
+                box.style.border = 'none'; 
+              }
             boxrow.appendChild(box);
         }
         containter.appendChild(boxrow);
@@ -24,11 +29,13 @@ function handleModeAction(event){
     if (mode == 1){
         mouseoverHandler(event);
     } else {
-        changeBackground(event);
+        shadingHandler(event);
     }
 }
 
 function init(){
+    var tb = document.querySelector('.btoggrid');
+    tb.addEventListener('click', togglegrid);
 
     var sb = document.querySelector('.sizebox');
     sb.value = nsize;
@@ -55,6 +62,19 @@ function init(){
     });
 }
 
+function togglegrid() { 
+    var b = document.querySelector('.btoggrid');
+    var box = document.querySelectorAll('.box');
+  isgrid = !isgrid;
+  if (isgrid){
+    b.textContent = "Grid On"
+    box.style.border = "1px solid black"; 
+  } else {
+    b.textContent = "Grid Off"
+    box.style.border = 'none';
+  }
+}
+
 function changeMode(){
     if (mode == 0) {
         mode = 1;
@@ -77,22 +97,19 @@ function mouseoverHandler(event) {
     }
 }
 
-function changeBackground(event){
+function shadingHandler(event){
+    var mode = 1;
+    if (iscleardown){
+        mode = -1;
+    }
     cell = event.target;
-    let colorPass = Math.round(brightness * 255);
+    let colorPass = Math.round(brightness * mode* 255);
     cell.color = Math.max(Math.min(cell.color-colorPass,255),0);
     let color = `rgb(${cell.color},${cell.color},${cell.color})`
     cell.style.backgroundColor = color;
 }
 
-function clampValue(event){
-    let element = event.target;
-    let value = parseFloat(element.value);
-    value = Math.max(parseFloat(element.min),Math.min(value,parseFloat(element.max)));
-    if (value !== parseFloat(element.value)){
-        element.value = value;
-    }
-}
+var isgrid = false;
 var nsize = 32;
 const brightness=.1;
 var ismousedown = false;
