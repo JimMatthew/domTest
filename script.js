@@ -1,6 +1,5 @@
 function makeGrid() {
     nsize = document.querySelector('.sizebox').value;
-
     const containter = document.querySelector('#container');
     containter.innerHTML = ''; //clear out the container
     const boxrow = document.createElement('div');
@@ -14,6 +13,7 @@ function makeGrid() {
             box.classList.add('box');
             box.color = 255;
             box.addEventListener('mouseenter', handleModeAction);
+            document.addEventListener('mousedown', handleMouseDownAction);
             if (isgrid) {
                 box.style.border = '1px solid black'; 
               } else {
@@ -23,6 +23,18 @@ function makeGrid() {
         }
         containter.appendChild(boxrow);
     }
+}
+
+function handleMouseDownAction(event) {
+    if (!ismousedown && !iscleardown){
+        if (event.button === 0) {
+            ismousedown = true;
+        } else if (event.button === 2) {
+            iscleardown = true;
+        }
+        handleModeAction(event);
+    }
+    event.preventDefault();
 }
 
 function handleModeAction(event){
@@ -48,15 +60,6 @@ function init(){
     const cont = document.querySelector('#container');
     cont.addEventListener("contextmenu", e => e.preventDefault());
     
-    document.addEventListener('mousedown', function(event) {
-        event.preventDefault();
-        if (event.button === 0) {
-            ismousedown = true;
-        } else if (event.button === 2) {
-            iscleardown = true;
-        }
-    });
-
     document.addEventListener('mouseup', function(event) {
         ismousedown = false;
         iscleardown = false;
@@ -65,22 +68,20 @@ function init(){
 
 function togglegrid() { 
     var b = document.querySelector('.btoggrid');
-   
-  isgrid = !isgrid;
-  if (isgrid){
-    b.textContent = "Grid On"
-  } else {
-    b.textContent = "Grid Off"
-  }
-
-  var box = document.querySelectorAll('.box');
-  box.forEach(bx => {
-      if (isgrid){
-          bx.style.border = "1px solid black"; 
-        } else {
-          bx.style.border = 'none';
-        } 
-  });
+    isgrid = !isgrid;
+    if (isgrid){
+        b.textContent = "Grid On"
+    } else {
+        b.textContent = "Grid Off"
+    }
+    var box = document.querySelectorAll('.box');
+    box.forEach(bx => {
+        if (isgrid){
+            bx.style.border = "1px solid black"; 
+            } else {
+            bx.style.border = 'none';
+            } 
+    });
 }
 
 function changeMode(){
@@ -106,7 +107,6 @@ function mouseoverHandler(event) {
 }
 
 function shadingHandler(event){
-
     if (iscleardown){
        var mode = -1;
     } else if (ismousedown) {
