@@ -49,6 +49,7 @@ function init(){
     cont.addEventListener("contextmenu", e => e.preventDefault());
     
     document.addEventListener('mousedown', function(event) {
+        event.preventDefault();
         if (event.button === 0) {
             ismousedown = true;
         } else if (event.button === 2) {
@@ -99,7 +100,7 @@ function changeMode(){
 function mouseoverHandler(event) {
      if(iscleardown && event.target.classList.contains('box')) {
         event.target.style.backgroundColor = "white";
-    } else if (event.target.classList.contains('box')) {
+    } else if (ismousedown && event.target.classList.contains('box')) {
         event.target.style.backgroundColor = "#06AED5";
     }
 }
@@ -108,9 +109,9 @@ function shadingHandler(event){
 
     if (iscleardown){
        var mode = -1;
-    } else {
+    } else if (ismousedown) {
         var mode = 1;
-    }
+    } else {return}
     cell = event.target;
     let colorPass = Math.round(brightness * mode* 255);
     cell.color = Math.max(Math.min(cell.color-colorPass,255),0);
