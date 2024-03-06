@@ -30,20 +30,29 @@ body{
     flex-grow: 1;
     background-color: white;
     aspect-ratio: 1;
-    
 }
 
   .header {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    font-size: 40px;
+  }
+
+  .footer {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    font-size: 20px;
+  }
+
+  .header, .footer{
+    font-weight: bold;
+    color: white;
     display: flex;
     justify-content: center;
     align-content: center;
     background-color: #1f2937;
     color: white;
-    padding-top: 50px;
-    padding-bottom: 50px;
-    font-size: 40px;
-    font-weight: bold;
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   }
 
   .mainpanel {
@@ -67,24 +76,6 @@ body{
     font-size: 20px;
   }
 
-  .bclr {
-    padding: 6px;
-    background-color: coral;
-    font-weight: bold;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 15px;
-    margin-bottom: 20px;
-  }
-
-  .bchangemode{
-    padding: 6px;
-    background-color: coral;
-    font-weight: bold;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 15px;
-    margin-bottom: 20px;
-  }
-
   .btn{
     padding: 6px;
     background-color: coral;
@@ -94,27 +85,10 @@ body{
     margin-bottom: 20px;
   }
 
-  .btoggrid {
-
-  }
-
   .label{
     display: flex;
     flex-wrap: wrap;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-  }
-
-  .footer {
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    background-color: #1f2937;
-    color: white;
-    padding-top: 40px;
-    padding-bottom: 40px;
-    font-size: 20px;
-    font-weight: bold;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   }
 
   .sizebox{
