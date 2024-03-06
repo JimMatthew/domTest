@@ -64,15 +64,22 @@ function init(){
 
 function togglegrid() { 
     var b = document.querySelector('.btoggrid');
-    var box = document.querySelectorAll('.box');
+   
   isgrid = !isgrid;
   if (isgrid){
     b.textContent = "Grid On"
-    box.style.border = "1px solid black"; 
   } else {
     b.textContent = "Grid Off"
-    box.style.border = 'none';
   }
+
+  var box = document.querySelectorAll('.box');
+  box.forEach(bx => {
+      if (isgrid){
+          bx.style.border = "1px solid black"; 
+        } else {
+          bx.style.border = 'none';
+        } 
+  });
 }
 
 function changeMode(){
@@ -90,7 +97,7 @@ function changeMode(){
 }
 
 function mouseoverHandler(event) {
-     if(iscleardown&& event.target.classList.contains('box')) {
+     if(iscleardown && event.target.classList.contains('box')) {
         event.target.style.backgroundColor = "white";
     } else if (event.target.classList.contains('box')) {
         event.target.style.backgroundColor = "#06AED5";
@@ -98,9 +105,11 @@ function mouseoverHandler(event) {
 }
 
 function shadingHandler(event){
-    var mode = 1;
+
     if (iscleardown){
-        mode = -1;
+       var mode = -1;
+    } else {
+        var mode = 1;
     }
     cell = event.target;
     let colorPass = Math.round(brightness * mode* 255);
