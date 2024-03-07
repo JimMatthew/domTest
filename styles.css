@@ -96,3 +96,8 @@ body{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     width: 30px;
   }
+
+  #bcolor{
+    width:auto;
+    display: none;
+  }
