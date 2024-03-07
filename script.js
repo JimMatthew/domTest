@@ -1,7 +1,6 @@
 
 var isgrid = false;
 var numboxes = 32;
-const brightness=.1;
 var isMouseDown = false;
 var isEraseDown = false;
 var mode = 0;
@@ -41,7 +40,6 @@ function makeGrid() {
               }
             containter.appendChild(box);
         }
-        //containter.appendChild(boxrow);
     }
 }
 
@@ -97,22 +95,19 @@ function changeMode(){
 }
 
 function mouseoverHandler(event) {
-    var c = document.querySelector('#bcolor').value;
      if(isEraseDown) {
         event.target.style.backgroundColor = "white";
     } else if (isMouseDown) {
-        event.target.style.backgroundColor = c;
+        event.target.style.backgroundColor = document.querySelector('#bcolor').value;
     }
 }
 
 function shadingHandler(event){
-    if (isEraseDown){
-       var mode = -1;
-    } else if (isMouseDown) {
-        var mode = 1;
-    } else {return}
+    if (isEraseDown) {var mode = -1;} 
+    else if (isMouseDown) {var mode = 1;} 
+    else {return}
     cell = event.target;
-    let colorPass = Math.round(brightness * mode* 255);
+    let colorPass = Math.round(.1 * mode* 255);
     cell.color = Math.max(Math.min(cell.color-colorPass,255),0);
     let color = `rgb(${cell.color},${cell.color},${cell.color})`
     cell.style.backgroundColor = color;
