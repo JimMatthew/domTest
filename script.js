@@ -27,8 +27,8 @@ function makeGrid() {
     containter.innerHTML = ''; //clear out the container
     
     for (let i = 0; i < numboxes; i++) {
-        const boxrow = document.createElement('div');
-        boxrow.classList.add('boxrow');
+        //const boxrow = document.createElement('div');
+        //boxrow.classList.add('boxrow');
         for (let j = 0; j < numboxes; j++) {
             const box = document.createElement('div');
             box.classList.add('box');
@@ -40,9 +40,9 @@ function makeGrid() {
               } else {
                 box.style.border = 'none'; 
               }
-            boxrow.appendChild(box);
+            containter.appendChild(box);
         }
-        containter.appendChild(boxrow);
+        //containter.appendChild(boxrow);
     }
 }
 

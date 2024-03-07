@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body{
     display: flex;
     flex-direction: column;
@@ -9,13 +13,13 @@ body{
 
 #container{
     display: flex;
-    flex-direction: column;
-    justify-items:center;
-    justify-content: space-evenly;
+    gap: 0px;
+    
+    flex-wrap: wrap;
     flex-grow: 1;
-    padding-left: 100px;
-    padding-right: 100px;
-    padding-bottom: 20px;
+    max-width: min(70vh, 70vw);
+    max-height: min(70vh, 70vw);
+    
 }
 
 .boxrow{
@@ -27,21 +31,24 @@ body{
 }
 
 .box{
-    flex-grow: 1;
+    width: calc(100% /32);
     background-color: white;
+    flex: 0,0, calc(min(100%/32, 60vh/32));
     aspect-ratio: 1;
 }
 
   .header {
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-top: 30px;
+    padding-bottom: 30px;
     font-size: 40px;
+    max-height: 15vh;
   }
 
   .footer {
-    padding-top: 40px;
-    padding-bottom: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     font-size: 20px;
+    max-height: 14vh;
   }
 
   .header, .footer{
@@ -57,6 +64,7 @@ body{
 
   .mainpanel {
     display: flex;
+    justify-content:space-around;
     flex-grow: 1;
     padding: 50px;
     background-color: #e5e7eb;
@@ -74,6 +82,7 @@ body{
     flex-wrap: wrap;
     font-weight: 600;
     font-size: 20px;
+    
   }
 
   .btn{
@@ -82,7 +91,7 @@ body{
     font-weight: bold;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 15px;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
   }
 
   .label{
