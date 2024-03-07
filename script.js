@@ -23,12 +23,11 @@ function init(){
 
 function makeGrid() {
     numboxes = document.querySelector('.sizebox').value;
+    document.documentElement.style.setProperty('--box-count', numboxes);
     const containter = document.querySelector('#container');
     containter.innerHTML = ''; //clear out the container
     
     for (let i = 0; i < numboxes; i++) {
-        //const boxrow = document.createElement('div');
-        //boxrow.classList.add('boxrow');
         for (let j = 0; j < numboxes; j++) {
             const box = document.createElement('div');
             box.classList.add('box');

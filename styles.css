@@ -1,6 +1,9 @@
 * {
   box-sizing: border-box;
 }
+:root {
+  --box-count: 32; 
+}
 
 body{
     display: flex;
@@ -14,7 +17,6 @@ body{
 #container{
     display: flex;
     gap: 0px;
-    
     flex-wrap: wrap;
     flex-grow: 1;
     max-width: min(70vh, 70vw);
@@ -31,9 +33,8 @@ body{
 }
 
 .box{
-    width: calc(100% /32);
     background-color: white;
-    flex: 0,0, calc(min(100%/32, 60vh/32));
+    flex: 0 0 calc(100% / var(--box-count));
     aspect-ratio: 1;
 }
 
