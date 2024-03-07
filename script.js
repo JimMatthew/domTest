@@ -13,7 +13,7 @@ function makeGrid() {
             box.classList.add('box');
             box.color = 255;
             box.addEventListener('mouseenter', handleModeAction);
-            document.addEventListener('mousedown', handleMouseDownAction);
+            container.addEventListener('mousedown', handleMouseDownAction);
             if (isgrid) {
                 box.style.border = '1px solid black'; 
               } else {
@@ -26,6 +26,8 @@ function makeGrid() {
 }
 
 function handleMouseDownAction(event) {
+
+
     if (!ismousedown && !iscleardown){
         if (event.button === 0) {
             ismousedown = true;
